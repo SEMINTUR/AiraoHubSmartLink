@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding-top: 10vh;
     height: 100vh;
 `
 
@@ -23,9 +23,15 @@ export const Download = styled.a`
     
 `
 
+export const Logo = styled.img`
+    border-radius: 30px;
+    width: 300px;
+`
+
 export const LinksContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 80vw;
+    max-width: 600px;
     justify-content: space-evenly;
 `

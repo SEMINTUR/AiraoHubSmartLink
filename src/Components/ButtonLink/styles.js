@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
+export const Button = styled.button`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -27,4 +33,15 @@ export const Icon = styled.img`
 
 export const ShowLink = styled.a`
 
+`
+
+export const QRButton = styled.button`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    &:hover{
+        cursor: pointer;
+    }
 `

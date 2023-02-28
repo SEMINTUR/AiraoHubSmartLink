@@ -2,16 +2,20 @@ import {
   Container,
   Download,
   InputLink,
-  LinksContainer
+  LinksContainer,
+  Logo
 } from './styles'
 import { useEffect, useState } from 'react'
 
 import QRCode from 'react-qr-code'
 import QRCodeLink from 'qrcode'
-import { getOS } from './utils/getOS'
-import { CustomText } from './Components/Text/style'
-import { ButtonLink } from './Components/ButtonLink'
 
+import { getOS } from './utils/getOS'
+import { ButtonLink } from './Components/ButtonLink'
+import { Line } from './Components/Line'
+
+
+import logo from '../src/assets/airaoHub.png'
 import androidIcon from '../src/assets/google-play.svg'
 import iosIcon from '../src/assets/apple.svg'
 
@@ -22,8 +26,8 @@ function App() {
   const [qrcodeLink, setQRCodeLink] = useState('')
 
   const androidLink = "https://play.google.com/store/apps/details?id=com.berwanger29.AiraoHub&hl=pt_BR&gl=US"
-
   const iosLink = "https://apps.apple.com/br/app/apple-music-for-artists/id1366467972"
+
 
   function handleQRCode(e) {
     setLink(e.target.value)
@@ -94,7 +98,12 @@ function App() {
         {
           ((os !== 'Android') && (os !== 'iOS')) &&
           <>
-            <p>Baixe agora mesmo na sua loja</p>
+            <Logo
+              src={logo} alt="Logo AirãoHub"
+            />
+            <p>Baixe agora mesmo no seu celular</p>
+
+            <Line />
             <LinksContainer>
               <ButtonLink
                 link={androidLink}
