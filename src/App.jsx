@@ -7,11 +7,17 @@ import { useEffect, useState } from 'react'
 
 import QRCode from 'react-qr-code'
 import QRCodeLink from 'qrcode'
+import { getOS } from './utils/getOS'
+import { CustomText } from './Components/Text/style'
 
 function App() {
 
+  const [os, setOs] = useState(null)
   const [link, setLink] = useState('')
   const [qrcodeLink, setQRCodeLink] = useState('')
+
+  const androidLink = "https://play.google.com/store/apps/details?id=com.berwanger29.AiraoHub&hl=pt_BR&gl=US"
+  const iosLink = "https://apps.apple.com/br/app/apple-music-for-artists/id1366467972"
 
   function handleQRCode(e) {
     setLink(e.target.value)
@@ -26,24 +32,36 @@ function App() {
       setQRCodeLink(url)
     })
   }
-  function findOS() {
-    var curOS = "Not Nmaed...";
-    if (navigator.appVersion.indexOf("Win") != -1) curOS = "Windows";
-    if (navigator.appVersion.indexOf("Mac") != -1) curOS = "MacOS";
-    if (navigator.appVersion.indexOf("ios") != -1) curOS = "MacOS";
-    if (navigator.appVersion.indexOf("Mac") != -1) curOS = "MacOS";
-    alert('Your OS: ' + curOS);
+
+  function openNewtab(e) {
+    // alert(e)
+
+    switch (e) {
+      case 'Android':
+        // window.open(androidLink)
+        alert(e)
+        break;
+      case 'iOS':
+        // window.open(iosLink, "_blank", "noopener noreferrer")
+        onclick = "location.href='https://example.com'"
+
+        break;
+      default:
+        console.log(`Você está num computador`);
+    }
   }
 
   useEffect(() => {
-    findOS()
-    console.log(`A sua plataforma é : ${window.navigator.platform.os}`)
+    let os = getOS()
+    setOs(os)
+    
   }, [])
+
 
   return (
     <>
       <Container>
-        <QRCode
+        {/* <QRCode
           value={link}
         />
 
@@ -58,7 +76,19 @@ function App() {
           download={`qrcode.png`}
         >
           Baixar QRCode
-        </Download>
+        </Download> */}
+        {
+          os === 'Android' &&
+          <a href={androidLink} target="_blank">Abrir na loja.</a>
+        }
+        {
+          os === 'iOS' &&
+          <a href={iosLink} target="_blank">Abrir na loja.</a>
+        }
+        {
+          ((os !== 'Android') && (os !== 'iOS')) &&
+          <p>Baixe agora mesmo na sua loja</p>
+        }
       </Container>
     </>
 
