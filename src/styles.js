@@ -22,3 +22,10 @@ export const InputLink = styled.input`
 export const Download = styled.a`
     
 `
+
+export const LinksContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    justify-content: space-evenly;
+`
