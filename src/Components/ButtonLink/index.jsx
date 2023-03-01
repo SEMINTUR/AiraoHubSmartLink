@@ -3,6 +3,7 @@ import {
     Button,
     Container,
     Icon,
+    LabelStore,
     QRButton,
     ShowLink,
     Text,
@@ -56,7 +57,7 @@ export function ButtonLink({
             <ReactModal
                 isOpen={isOpen}
                 onRequestClose={
-                    ()=>{
+                    () => {
                         setIsOpen(!isOpen)
                         document.addEventListener('keydown',)
                     }
@@ -65,36 +66,42 @@ export function ButtonLink({
                     overlay: {
                         display: "flex",
                         flex: 1,
+                        alignItems: "center",
+                        justifyContent: "center",
                         backgroundColor: 'rgba(114, 114, 114, 0.23)'
                     },
                     content: {
-                        border: 'none',
+                        position: "static",
                         display: "flex",
+                        flex: 0.5,
                         flexDirection: "column",
-                        flex: 1,
                         alignItems: 'center',
                         justifyContent: "center",
+                        border: 'none',
                         backgroundColor: 'rgb(28, 24, 24)',
 
                     }
                 }}
             >
+                <QRButton
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    X
+                </QRButton>
+
                 <QRCode
                     size={256}
                     value={link}
                 />
-                <QRButton
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    <Text
-                        style={{
-                            marginLeft: 0,
-                            marginRight: 10
-                        }}
-                    >
-                        Fechar modal
+
+                <LabelStore>
+                    <Icon
+                        src={icon}
+                    />
+                    <Text>
+                        {title}
                     </Text>
-                </QRButton>
+                </LabelStore>
 
             </ReactModal>
         </>

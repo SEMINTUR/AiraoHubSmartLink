@@ -39,9 +39,15 @@ export const QRButton = styled.button`
     display: flex;
     flex-direction: row;
     align-items: center;
+    align-self: flex-end;
     background-color: transparent;
     border: none;
     &:hover{
         cursor: pointer;
     }
+`
+
+export const LabelStore = styled.div`
+    display: flex;
+    flex-direction: row;
 `

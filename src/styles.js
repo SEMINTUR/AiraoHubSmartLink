@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
     padding-top: 10vh;
-    height: 100vh;
+    
 `
 
 export const InputLink = styled.input`
