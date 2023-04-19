@@ -27,7 +27,7 @@ function App() {
   const [qrcodeLink, setQRCodeLink] = useState('')
 
   const androidLink = "https://play.google.com/store/apps/details?id=com.berwanger29.AiraoHub&hl=pt_BR&gl=US"
-  const iosLink = "https://apps.apple.com/br/app/apple-music-for-artists/id1366467972"
+  const iosLink = "https://apps.apple.com/us/app/airãohub-guia-tur%C3%ADstico/id6446804782"
 
 
   function handleQRCode(e) {
