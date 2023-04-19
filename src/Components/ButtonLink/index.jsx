@@ -43,7 +43,8 @@ export function ButtonLink({
                     <Text
                         style={{
                             marginLeft: 0,
-                            marginRight: 10
+                            marginRight: 10,
+                            color:'white'
                         }}
                     >
                         Mostrar QRCode

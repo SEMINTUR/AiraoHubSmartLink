@@ -18,6 +18,7 @@ import { Line } from './Components/Line'
 import logo from '../src/assets/airaoHub.png'
 import androidIcon from '../src/assets/google-play.svg'
 import iosIcon from '../src/assets/apple.svg'
+import { MobileStore } from './Components/MobileStore'
 
 function App() {
 
@@ -71,29 +72,22 @@ function App() {
   return (
     <>
       <Container>
-        {/* <QRCode
-          value={link}
-        />
 
-        <InputLink
-          placeholder='Digite seu link aqui...'
-          value={link}
-          onChange={(e) => handleQRCode(e)}
-        />
-
-        <Download
-          href={qrcodeLink}
-          download={`qrcode.png`}
-        >
-          Baixar QRCode
-        </Download> */}
         {
           os === 'Android' &&
-          <a href={androidLink} target="_blank">Abrir na loja.</a>
+          // <a href={androidLink} target="_blank">Abrir na loja.</a>
+          <MobileStore
+            link={androidLink}
+            icon={androidIcon}
+          />
         }
         {
           os === 'iOS' &&
-          <a href={iosLink} target="_blank">Abrir na loja.</a>
+          // <a href={iosLink} target="_blank">Abrir na loja.</a>
+          <MobileStore
+            link={iosLink}
+            icon={iosIcon}
+          />
         }
         {
           ((os !== 'Android') && (os !== 'iOS')) &&
